@@ -8,7 +8,7 @@ import url from 'url';
 http.createServer((req, res) =>{
 
     const currentQuery = url.parse(req.url, true).query;
-    const txt = (currentQuery.year && currentQuery.month)
+    const queryContent = (currentQuery.year && currentQuery.month)
                 ?currentQuery.year + " " + currentQuery.month 
                 : "";
 
@@ -23,7 +23,7 @@ http.createServer((req, res) =>{
     <div>${req.headers}</div>
     <hr/>
     <div>Query content:</div>
-    <div>${txt}</div>
+    <div>${queryContent}</div>
     <hr/>
     <div>Others:</div>
     </body>

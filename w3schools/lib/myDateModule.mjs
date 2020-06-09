@@ -1,6 +1,6 @@
 
 function simpleDateTime(){
-    return Date();
+    return new Date();
 }
 
 export default simpleDateTime;
