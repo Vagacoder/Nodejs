@@ -23,6 +23,7 @@ http.createServer((req, res) => {
             let oldPath = files.fileToUpload.path;
             let newPath = './upload/' + files.fileToUpload.name;
 
+            // ! cross deveice moving file is not allowed, using copy
             // fs.rename(oldPath, newPath, (err) => {
             //     if (err) {
             //         console.log(err.message);
