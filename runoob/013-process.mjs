@@ -35,4 +35,6 @@ console.log(`current dir: ${process.cwd()}`);
 console.log(`current memory usage: `, process.memoryUsage());
 console.log(`current version: ${process.version}`);
 
+process.stdout.write("\nDirect from process stdout\n\n");
+
 console.log('program is done');
