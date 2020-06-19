@@ -11,7 +11,7 @@ http.createServer((req, res) =>{
 
     console.log(`Request for ${pathname} received`);
 
-    if(pathname === "/"){
+    if(pathname === "/index.html"){
         fs.readFile(('./public/index.html'), (err, data) => {
             if(err){
                 console.error(err);
@@ -22,6 +22,8 @@ http.createServer((req, res) =>{
             }
             res.end();
         })
+    }else{
+        res.end('website is under contruction');
     }
 
 }).listen(8080);
