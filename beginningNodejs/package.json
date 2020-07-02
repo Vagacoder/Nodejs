@@ -1,0 +1,17 @@
+{
+  "name": "beginningnodejs",
+  "version": "0.0.1",
+  "description": "for beginning nodejs",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vagacoder",
+  "license": "ISC",
+  "dependencies": {
+    "underscore": "^1.10.2"
+  }
+}
