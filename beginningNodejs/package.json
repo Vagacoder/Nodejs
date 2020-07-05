@@ -12,6 +12,7 @@
   "author": "vagacoder",
   "license": "ISC",
   "dependencies": {
+    "colors": "^1.4.0",
     "moment": "^2.27.0",
     "optimist": "^0.6.1",
     "underscore": "^1.10.2"
