@@ -6,7 +6,8 @@
 import fibonacci from './lib/fibonacci.mjs';
 
 process.nextTick(()=>{
-    const f = fibonacci(40);  // comment out this line, still executed after immediate
+    let f = 0;
+    f = fibonacci(40);  // comment out this line, still executed after immediate
     console.log('next tick', f);
 })
 console.log('immediate');
