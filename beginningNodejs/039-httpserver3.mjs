@@ -22,18 +22,23 @@ const mimeloolup = {
 }
 
 const server = http.createServer(function(req, resp){
+
+    // * 1. check request method, process GET
     if(req.method === 'GET'){
 
-        // * resolve file path to system path
+        // * 2. resolve file path to system path
         let fileurl;
+        // * 2.1. redirect / to index3.html
         if(req.url === '/'){
             fileurl = '/index3.html';
         }else {
             fileurl = req.url;
         }
+        // * 2.2. resolt to public folder
         let filepath = path.resolve('./public' + fileurl);
+        console.log(filepath.toString());
 
-        // * lookup mime type
+        // * 3. lookup mime type mapped to file extension
         let fileExt = path.extname(filepath);
         let mimeType = mimeloolup[fileExt];
         if(!mimeType){
@@ -41,13 +46,14 @@ const server = http.createServer(function(req, resp){
             return;
         }
 
-        // * see if file exists
+        // * 4. see if file exists
         fs.exists(filepath, function(exists){
             if(!exists){
                 send404(resp);
                 return;
             }
             
+            // * 5. send headers and response
             resp.writeHead(200, {'Content-Type':'text/html'});
             fs.createReadStream(filepath).pipe(resp);
         })
