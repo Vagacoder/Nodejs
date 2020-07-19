@@ -1,5 +1,6 @@
 /*
- * node js, middleware chaining 1, parse JSON 
+ * node js, module connect
+ * middleware chaining 1, parse JSON 
  */
 
 import connect from 'connect';
@@ -21,6 +22,7 @@ function parseJSON(req, res, next){
         req.on('end', function(){
             try{
                 console.log(readData);
+                // ? some reason, 'null' is added to end of string
                 readData = readData.substring(0, readData.length-4);
                 console.log(readData);
                 req.body = JSON.parse(readData);
