@@ -3,13 +3,15 @@
  * middleware chaining 4. 
  * 4.1 Handle error
  * 4.2 pass error object to next()
+ * 4.3 handler will catch all error, including throw error
  */
 
 import connect from 'connect';
 
 connect()
     .use((req, res, next)=>{
-        next(new Error('Big bad error!'));
+        throw new Error('First error!');
+        next(new Error('Second error!'));
     })
     .use((req, res, next)=>{
         res.end('Never get called!');
