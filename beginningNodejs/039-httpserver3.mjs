@@ -2,6 +2,13 @@
  * node js, http server. single page
  * For any request we dont accept, server return HTTP 404
  * Add a javascript to html file
+  
+ ! Important example.
+
+ ? require files:
+ ? 1, public/index3.html
+ ? 2. public/main3.js
+
  */
 
 import http from 'http';
@@ -28,12 +35,14 @@ const server = http.createServer(function(req, resp){
 
         // * 2. resolve file path to system path
         let fileurl;
+
         // * 2.1. redirect / to index3.html
         if(req.url === '/'){
             fileurl = '/index3.html';
         }else {
             fileurl = req.url;
         }
+
         // * 2.2. resolt to public folder
         let filepath = path.resolve('./public' + fileurl);
         console.log(filepath.toString());
@@ -54,7 +63,7 @@ const server = http.createServer(function(req, resp){
             }
             
             // * 5. send headers and response
-            resp.writeHead(200, {'Content-Type':'text/html'});
+            resp.writeHead(200, {'Content-Type': mimeType});
             fs.createReadStream(filepath).pipe(resp);
         })
     }else{
