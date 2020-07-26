@@ -1,5 +1,8 @@
 /*
  * node js, module express, cookie
+
+ * $ curl http://127.0.0.1:3000 -i
+
  */
 
 import express from 'express';

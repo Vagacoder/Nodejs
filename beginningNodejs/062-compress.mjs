@@ -1,5 +1,8 @@
 /*
  * node js, module express and compression 
+
+ * $ curl http://127.0.0.1:3000 -i --compressed
+
  */
 
 import express from 'express';

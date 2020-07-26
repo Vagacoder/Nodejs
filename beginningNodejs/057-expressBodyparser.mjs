@@ -1,5 +1,8 @@
 /*
  * node js, module express, body-parser 
+
+ * $ curl localhost:3000/ --data-urlencode "foo=123"
+
  */
 
 import express from 'express';
