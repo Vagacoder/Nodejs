@@ -1,5 +1,7 @@
 /*
  * node js, module express, simplify path for middleware 
+ 
+ * $ curl localhost:3000/home
  */
 
 import express from 'express';

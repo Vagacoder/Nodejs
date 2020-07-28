@@ -1,5 +1,7 @@
 /*
  * node js, module express. simplified request and response, and their methods. 
+
+ * $ curl localhost:3000/?user=abc&pass=123
  */
 
 import express from 'express';
