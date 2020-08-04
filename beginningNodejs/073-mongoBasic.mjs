@@ -1,5 +1,7 @@
 /*
  * node js, module mongodb, basic 
+ * (1) there are 2 modifictions to get db and coolection
+ * (2) Also note that, demonPerson object is modified after insertion.
  */
 
 import mongodb from 'mongodb';
@@ -13,18 +15,26 @@ const demoPerson = {
 
 const findKey = {name: 'John'};
 
+// * here is modification #1
 MongoClient.connect('mongodb://localhost:27017', function(err, db){
     if(err){
         throw err;
     }
 
     console.log('Successfully connected');
+    console.log('demoPerson before insertion:', demoPerson);
 
+    // * here is modification #2
     const dbo = db.db('demo');
+
     const collection = dbo.collection('people');
-    collection.insert(demoPerson, function(err, docs){
+
+    collection.insertOne(demoPerson, function(err, docs){
         console.log('Inserted', docs[0]);
         console.log('Id:', demoPerson._id);
+
+        // ! Note: demonPerson is modified after insertion
+        console.log('demoPerson after insertion:', demoPerson);
 
         collection.find(findKey).toArray(function(err, results){
             console.log('Found results:', results);
