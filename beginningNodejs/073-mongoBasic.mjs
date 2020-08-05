@@ -16,7 +16,7 @@ const demoPerson = {
 const findKey = {name: 'John'};
 
 // * here is modification #1
-MongoClient.connect('mongodb://localhost:27017', function(err, db){
+MongoClient.connect('mongodb://localhost:27017', function(err, connection){
     if(err){
         throw err;
     }
@@ -25,9 +25,9 @@ MongoClient.connect('mongodb://localhost:27017', function(err, db){
     console.log('demoPerson before insertion:', demoPerson);
 
     // * here is modification #2
-    const dbo = db.db('demo');
+    const db = connection.db('demo');
 
-    const collection = dbo.collection('people');
+    const collection = db.collection('people');
 
     collection.insertOne(demoPerson, function(err, docs){
         console.log('Inserted', docs[0]);
@@ -41,7 +41,7 @@ MongoClient.connect('mongodb://localhost:27017', function(err, db){
             collection.remove(findKey, function(err, results){
                 console.log('Deleted person');
 
-                db.close();
+                connection.close();
             });
         });
 

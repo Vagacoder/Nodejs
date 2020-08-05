@@ -29,6 +29,7 @@ MongoClient.connect('mongodb://localhost:27017', (err, db)=>{
             collection.find(query).toArray((err, arr) => {
                 console.log(arr);
                 
+                collection.drop();
                 db.close();
             })
         })
