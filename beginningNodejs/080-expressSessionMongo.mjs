@@ -8,12 +8,17 @@ import express from 'express';
 import expressSession from 'express-session';
 import connectMongo from 'connect-mongo';
 
+// * passing exprees-session to connect-mongo
 const MongoStore = connectMongo(expressSession);
+
+// * instantiate connect-mongo
+// ! parameter is updated!
 const sessionStore = new MongoStore({
     url: 'mongodb://localhost',
     dbName: 'session',
 });
 
+// * express use express-session, pass the instance of connect-mongo to express-session.
 const app = express()
             .use(expressSession({
                 secret: 'Super secret sign key',
