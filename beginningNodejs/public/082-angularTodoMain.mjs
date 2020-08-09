@@ -1,7 +1,6 @@
 /*
  * node js, module express, to do list, main js script 
- * 
- * Front end script, work with public/index5.html
+ * work with public/index5.html
  * 
  */
 

@@ -33,6 +33,7 @@ db.once('open', function callback(){
             db.collection('tanks').drop(function(){
                 db.close();
             });
+            // db.close();
         });
     });
 
