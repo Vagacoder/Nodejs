@@ -13,7 +13,8 @@ const demoPerson = {
     lastName: 'Smith'
 };
 
-const findKey = {name: 'John'};
+const reg = /\s*/;
+const findKey = {name: reg};
 
 // * here is modification #1
 MongoClient.connect('mongodb://localhost:27017', function(err, connection){
